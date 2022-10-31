@@ -7,6 +7,16 @@ contract WavePortal {
 
     uint256 totalWaves;
 
+    struct Wave {
+        address waver; // The address of the user who waved.
+        string message; // The message the user sent.
+        uint256 timestamp; // The timestamp when the user waved.
+    }
+
+
+    Wave[] waves;
+
+
     constructor() {
         console.log("Hello this is a smart contract");
     }
