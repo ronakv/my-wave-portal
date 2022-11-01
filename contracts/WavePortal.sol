@@ -16,7 +16,21 @@ contract WavePortal {
 
     Wave[] waves;
 
+    function wave(string memory _message) public {
+        totalWaves += 1;
+        console.log("%s waved w/ message %s", msg.sender, _message);
 
+        /*
+         * This is where I actually store the wave data in the array.
+         */
+        waves.push(Wave(msg.sender, _message, block.timestamp));
+
+        /*
+         * I added some fanciness here, Google it and try to figure out what it is!
+         * Let me know what you learn in #general-chill-chat
+         */
+        emit NewWave(msg.sender, block.timestamp, _message);
+    }
     constructor() {
         console.log("Hello this is a smart contract");
     }
